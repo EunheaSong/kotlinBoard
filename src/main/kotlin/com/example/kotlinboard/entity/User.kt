@@ -1,29 +1,30 @@
 package com.example.kotlinboard.entity
 
-import java.time.LocalDateTime
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.OneToMany
+import javax.persistence.*
 
 @Entity
 class User(
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    val id : Int,
+    val id: Long,
+
     @Column(nullable = false)
-    var userEmail : String,
+    var userEmail: String,
+
     @Column(nullable = false)
     val username: String,
+
     @Column(nullable = false)
     val password: String,
+
     @Column
-    val userImage:String,
-    @Column
+    val userImage: String,
+
     @OneToMany(mappedBy = "user")
     val petList: List<Pet>,
+
     @Column
-    var createAt: LocalDateTime,
-    @Column
-    val updateAt: LocalDateTime
-) {
+    var isDeleted : Boolean
+) : Timestamped() {
 }
+

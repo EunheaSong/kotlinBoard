@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class PetContoller() {
+class PetController() {
 
     @PostMapping("/pet/join")
     fun petJoin(){

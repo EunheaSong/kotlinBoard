@@ -29,7 +29,6 @@ class UserContoller() {
     }
 
 
-
     @DeleteMapping("/user/remove")
     fun removeUser(){
 
