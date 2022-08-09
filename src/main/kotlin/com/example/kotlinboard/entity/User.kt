@@ -8,10 +8,10 @@ class User(
     @Id
     val id: Long,
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     var userEmail: String,
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     val username: String,
 
     @Column(nullable = false)
@@ -20,8 +20,17 @@ class User(
     @Column
     val userImage: String,
 
-    @OneToMany(mappedBy = "user")
+    @JoinColumn(name = "pet_id")
+    @OneToMany(fetch = FetchType.LAZY)
     val petList: List<Pet>,
+
+    @JoinColumn(name = "post_id")
+    @OneToMany(fetch = FetchType.LAZY)
+    val postList: List<Post>,
+
+    @JoinColumn(name = "comment_id")
+    @OneToMany(fetch = FetchType.LAZY)
+    val commentList: List<Comments>,
 
     @Column
     var isDeleted : Boolean

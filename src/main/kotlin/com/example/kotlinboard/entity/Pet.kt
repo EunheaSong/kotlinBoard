@@ -15,13 +15,13 @@ class Pet(
     val age: Int,
 
     @Column(nullable = false)
-    val type: String,
+    val type: String, //강아지 , 고양이, 고슴도치, 햄스터, 기니피그,
 
     @Column(nullable = false)
     val petImage: String,
 
     @Column(nullable = false)
-    @ManyToOne
-    var user: User
+    val userId: Long
+
 ) {
 }

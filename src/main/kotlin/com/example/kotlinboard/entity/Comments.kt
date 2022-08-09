@@ -10,6 +10,8 @@ class Comments(
     val id : Long,
     @Column
     var contents : String,
+    @Column
+    val userId: Long
 
 ) : Timestamped() {
 }

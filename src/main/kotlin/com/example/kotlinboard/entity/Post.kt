@@ -1,8 +1,6 @@
 package com.example.kotlinboard.entity
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
 class Post(
@@ -18,6 +16,13 @@ class Post(
 
     @Column
     var image : String,
+
+    @Column
+    val userId: Long,
+
+    @JoinColumn
+    @OneToMany(fetch = FetchType.LAZY)
+    val comments: List <Comments>
 
 ) : Timestamped(){
 }
