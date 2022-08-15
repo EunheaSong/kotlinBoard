@@ -32,7 +32,7 @@ class User(
     @OneToMany(fetch = FetchType.LAZY)
     val commentList: List<Comments>,
 
-    @Column
+    @Column(nullable = false, columnDefinition = "false")
     var isDeleted : Boolean
 ) : Timestamped() {
 }
